@@ -28,7 +28,7 @@ packages:
       name: avatar_glow
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "1.2.0"
   back_button_interceptor:
     dependency: transitive
     description:
@@ -211,7 +211,7 @@ packages:
       name: highlight_text
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "0.7.2"
   http:
     dependency: transitive
     description:
@@ -476,6 +476,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  speech_recognition:
+    dependency: "direct main"
+    description:
+      name: speech_recognition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0+1"
   speech_to_text:
     dependency: "direct main"
     description:

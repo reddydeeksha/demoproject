@@ -1,8 +1,6 @@
-
-//import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:majorproj2/UserManualPage.dart';
-import 'package:majorproj2/streamchatmain.dart';
+//import 'package:majorproj2/streamchatmain.dart';
 //import 'package:majorproj2/streamchatmain.dart';
 import 'custom_keyboard.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
@@ -114,7 +112,7 @@ class _SecondRoute extends State<SecondRoute> {
 
     }
     if (index == 4){
-      Navigator.push(context, MaterialPageRoute(builder:(context)=>new MyApp2()));
+      Navigator.push(context, MaterialPageRoute(builder:(context)=>new SettingsDemo()));
 
     }
     if (index == 5){
@@ -124,7 +122,7 @@ class _SecondRoute extends State<SecondRoute> {
   }
   
   @override
-  String text = 'Press the button and start speaking';
+  //String text = 'Press the button and start speaking';
   @override
   Widget build(BuildContext context) {
     Material loginButon;
@@ -194,7 +192,6 @@ class _SecondRoute extends State<SecondRoute> {
  
 /*class UserManualDemo extends StatefulWidget{
   _UserManualDemo createState() => new _UserManualDemo();
-
 }  
 class _UserManualDemo extends State<UserManualDemo>{
   Widget build(BuildContext context) {
@@ -206,7 +203,6 @@ class _UserManualDemo extends State<UserManualDemo>{
               bottomNavigationBar: Padding(
         padding: EdgeInsets.all(8.0),
         child: FlatButton(
-
                 child: Text('Back', style: TextStyle(fontSize: 20.0),),  
                 color: Colors.blueAccent,  
                 
@@ -222,7 +218,7 @@ class _UserManualDemo extends State<UserManualDemo>{
         );
 } 
 }*/
-/*class SettingsDemo extends StatefulWidget{
+class SettingsDemo extends StatefulWidget{
   _SettingsDemo createState() => new _SettingsDemo();
 }  
 class _SettingsDemo extends State<SettingsDemo>{
@@ -235,7 +231,6 @@ class _SettingsDemo extends State<SettingsDemo>{
                 bottomNavigationBar: Padding(
         padding: EdgeInsets.all(8.0),
         child: FlatButton(
-
                 child: Text('Back', style: TextStyle(fontSize: 20.0),),  
                 color: Colors.blueAccent,  
                 
@@ -249,7 +244,7 @@ class _SettingsDemo extends State<SettingsDemo>{
                 body: Center(child: Text('Settings'),)
         );
 } 
-} */
+} 
 class MicDemo extends StatefulWidget{
   _MicDemo createState() => new _MicDemo();
 }      
@@ -302,21 +297,17 @@ final Map<String, HighlightedWord> _highlights = {
     super.initState(); 
     _speech = stt.SpeechToText();
   }
-
-  @override
-  //String text = 'Press the button and start speaking';
+  String text = 'Press the button and start speaking';
   @override
   Widget build(BuildContext context) {
     //Material loginButon;
         return Scaffold(
           appBar: AppBar(
-            //automaticallyImplyLeading: false,
-            //title: Text("Second Route"),
             title: Text('Confidence: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
         
           ), 
 
-                //flatButtonLocation: FlatButtonLocation.centerFloat,
+                
                 floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                 floatingActionButton: AvatarGlow(
                   animate: _isListening,
@@ -331,8 +322,8 @@ final Map<String, HighlightedWord> _highlights = {
                   ),
                 ),
                 bottomNavigationBar: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: FlatButton(
+                padding: EdgeInsets.all(8.0),
+                child: FlatButton(
 
                 child: Text('Back', style: TextStyle(fontSize: 20.0),),  
                 color: Colors.blueAccent,  
@@ -347,8 +338,6 @@ final Map<String, HighlightedWord> _highlights = {
                 
                 body: SingleChildScrollView(
                   reverse: true,
-                  /*child:Column(
-                    children:<Widget>[*/
                    child: Container(
                     padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 150.0),
                     child: TextHighlight(
@@ -364,8 +353,6 @@ final Map<String, HighlightedWord> _highlights = {
                     ),
                     ),
 
-                  /*  ]
-                  ),*/
                 ), 
         );
               
@@ -508,7 +495,7 @@ class _KeyboardDemoState extends State<KeyboardDemo> {
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-          SizedBox(height: 50),
+          SizedBox(height: 70),
           TextField(
             controller: _controller,
             decoration: InputDecoration(
@@ -840,10 +827,8 @@ class TextKey extends StatelessWidget {
     //this.onBackspace,
     this.flex = 1,
   }) : super(key: key);
-
   //final VoidCallback onBackspace;
   final int flex;
-
   @override
   Widget build(BuildContext context) {
     return Expanded(

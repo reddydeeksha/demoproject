@@ -23,7 +23,7 @@ class TestKeyboard extends StatelessWidget{
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
     return Material(
-      child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black,fontSize: 18.0), child: Container(
+      child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.w700,color: Colors.black,fontSize: 18.0), child: Container(
         height:getHeight(context),
         width: mediaQuery.size.width,
         decoration: BoxDecoration(
@@ -31,8 +31,8 @@ class TestKeyboard extends StatelessWidget{
         ),
         child: GridView.count(
             childAspectRatio: 4/*3/1*/,
-            mainAxisSpacing:0.5,
-            crossAxisSpacing:0.5,
+            mainAxisSpacing:1.5,
+            crossAxisSpacing:1.5,
             padding: EdgeInsets.all(0.0),
             crossAxisCount: 5,
             children: <Widget>[
@@ -93,7 +93,7 @@ class TestKeyboard extends StatelessWidget{
   Widget buildButton(String title,{String value}){
     return Container(
       color: Colors.grey,
-      height: 180,
+      height: 300,
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
         child: Center(child: Text(title)),
@@ -165,7 +165,6 @@ class TestKeyboard extends StatelessWidget{
     );
   }
   
-
   Expanded buildRowTwo() {
     return Expanded(
       child: Row(
@@ -265,7 +264,6 @@ class TestKeyboard extends StatelessWidget{
   }
   
 }
-
 class TextKey extends StatelessWidget {
   const TextKey({
     Key key,
@@ -273,11 +271,9 @@ class TextKey extends StatelessWidget {
     this.onTextInput,
     this.flex = 1,
   }) : super(key: key);
-
   final String text;
   final ValueSetter<String> onTextInput;
   final int flex;
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -300,4 +296,3 @@ class TextKey extends StatelessWidget {
   }
 }
 */      
-  
