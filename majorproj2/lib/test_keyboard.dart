@@ -24,8 +24,10 @@ class TestKeyboard extends StatelessWidget{
     MediaQueryData mediaQuery = MediaQuery.of(context);
     return Material(
       child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.w700,color: Colors.black,fontSize: 18.0), child: Container(
-        height:getHeight(context),
-        width: mediaQuery.size.width,
+        /*height:getHeight(context),
+        width: mediaQuery.size.width,*/
+        height:300,
+        width: 250,
         decoration: BoxDecoration(
           color: Color(0xffafafaf),
         ),
@@ -34,7 +36,7 @@ class TestKeyboard extends StatelessWidget{
             mainAxisSpacing:1.5,
             crossAxisSpacing:1.5,
             padding: EdgeInsets.all(0.0),
-            crossAxisCount: 5,
+            crossAxisCount: 4,
             children: <Widget>[
               buildButton('q'),
               buildButton('w'),
@@ -73,8 +75,8 @@ class TestKeyboard extends StatelessWidget{
                 ),
               ),
               buildButton('m'),
-
-              buildButton('0'),
+              
+              //buildButton('0'),
               Container(
                 color: Color(0xFFd3d6dd),
                 child: GestureDetector(

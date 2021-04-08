@@ -11,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:cool_ui/cool_ui.dart';
 import 'UserManualPage.dart';
 import 'UserNotesDemo.dart';
+import 'package:majorproj2/NavBar.dart';
 //import 'custom_keyboard.dart';
 import 'package:flutter/services.dart';
 //import 'custom_button.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+      
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -127,9 +129,22 @@ class _SecondRoute extends State<SecondRoute> {
   Widget build(BuildContext context) {
     Material loginButon;
         return Scaffold(
+          drawer: NavBar(),
           appBar: AppBar(
             //automaticallyImplyLeading: false,
             title: Text("Welcome"),
+            actions: <Widget>[
+            IconButton(
+              icon: Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder:(context)=>new CustomKeyboardDemo())); 
+        // do something
+      },
+    )
+  ],
             //title: Text('Confidence: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
         
           ), 
@@ -323,7 +338,7 @@ final Map<String, HighlightedWord> _highlights = {
                 ),
                 bottomNavigationBar: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: FlatButton(
+                /*child: FlatButton(
 
                 child: Text('Back', style: TextStyle(fontSize: 20.0),),  
                 color: Colors.blueAccent,  
@@ -333,7 +348,7 @@ final Map<String, HighlightedWord> _highlights = {
                   Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
                 },  
           
-      ),
+      ),*/
                 ),
                 
                 body: SingleChildScrollView(
