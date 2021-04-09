@@ -42,7 +42,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class MyHomePage extends StatefulWidget {
       MyHomePage({Key key, this.title}) : super(key: key);
       // This widget is the home page of your application. It is stateful, meaning
@@ -121,8 +120,7 @@ class _SecondRoute extends State<SecondRoute> {
       Navigator.push(context, MaterialPageRoute(builder:(context)=>new UserNotesDemo()));
 
     }
-  }
-  
+  }  
   @override
   //String text = 'Press the button and start speaking';
   @override
@@ -197,11 +195,7 @@ class _SecondRoute extends State<SecondRoute> {
         onTap: _onItemTapped,
              
       ),
-      );
-
-
-
-             
+      );             
             }
 }
  
@@ -301,12 +295,10 @@ final Map<String, HighlightedWord> _highlights = {
       ),
     ),
   };
-
   stt.SpeechToText _speech;
   bool _isListening = false;
   String _text = 'Press the button and start speaking';
   double _confidence = 1.0;
-
   @override
   void initState() {
     super.initState(); 
@@ -321,8 +313,6 @@ final Map<String, HighlightedWord> _highlights = {
             title: Text('Confidence: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
         
           ), 
-
-                
                 floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                 floatingActionButton: AvatarGlow(
                   animate: _isListening,
@@ -350,7 +340,6 @@ final Map<String, HighlightedWord> _highlights = {
           
       ),*/
                 ),
-                
                 body: SingleChildScrollView(
                   reverse: true,
                    child: Container(
@@ -361,16 +350,12 @@ final Map<String, HighlightedWord> _highlights = {
                       textStyle: const TextStyle(
                         fontSize: 32.0,
                         color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                      
-                        
+                        fontWeight: FontWeight.w400,  
                       ),
                     ),
                     ),
-
                 ), 
-        );
-              
+        );  
             }
           void _listen() async {
               if (!_isListening) {
@@ -393,15 +378,10 @@ final Map<String, HighlightedWord> _highlights = {
                         setState(() => _isListening = false);
                         _speech.stop();
                       }
-                    }
-                  
-                    
-                  
-        
+                    }        
 }
 
 class SpeechApi{
-
   static final _speech=stt.SpeechToText();
   static Future<bool> toggleRecording({Function(Text) onResult}) async{
     @required Function(String text) onResult;
@@ -473,7 +453,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     SizedBox(
                                       height: 155.0,
                                       child: Image.asset(
-                                        "assets/logo.png",
+                                        "https://images.unsplash.com/photo-1597042343165-57d0e98546b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VwZXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
                                         fit: BoxFit.contain,
                                       ),
                                     ),

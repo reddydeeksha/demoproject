@@ -1,3 +1,5 @@
+import 'package:shimmer/shimmer.dart';
+
 import 'main.dart';
 
 import 'test_keyboard.dart';
@@ -37,13 +39,29 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
           appBar: AppBar(
             title: Text("Custom Keyboard Demo"),
           ),
-          
           body: ListView(
+            
             children: <Widget>[
+              
               SizedBox(
-                  height: 160,
+                  height: 180,
                 ),
               Container(
+                height:100,
+                width: 100,
+                child: Shimmer.fromColors(
+                  child: Text("LOGIN", 
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  textAlign: TextAlign.center,
+                  ),
+                  baseColor: Colors.red, 
+                  highlightColor: Colors.blueAccent,
+                  ),
+                
+
+              ),
+              
+              /*Container(
                 alignment: Alignment.centerRight,  
                 child: TextField(
                 
@@ -59,15 +77,17 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                        ),
                        //border: UnderlineInputBorder()
                   ),
-              ),
-              ),
+              ),*/
               SizedBox(
-                  height: 55,
+                  height: 10,
                 ),
+                  
+
+              
               TextField(
                 controller: textEditingController,
                 keyboardType: TestKeyboard.inputType,
-              decoration: InputDecoration(
+                decoration: InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 prefixIcon: Icon(Icons.email),
                 hintText: "Email",
@@ -166,7 +186,10 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                                   ),
                                   )
                                 ],
-                              ));
+                              )
+           // ]
+          //)
+                              );
                         }));
                       }
                     
