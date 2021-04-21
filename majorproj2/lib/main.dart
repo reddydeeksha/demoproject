@@ -1,5 +1,8 @@
+//import 'dart:html';
+import 'videostreammain.dart';
 import 'package:flutter/material.dart';
 import 'package:majorproj2/UserManualPage.dart';
+import 'package:shimmer/shimmer.dart';
 //import 'package:majorproj2/streamchatmain.dart';
 //import 'package:majorproj2/streamchatmain.dart';
 import 'custom_keyboard.dart';
@@ -12,6 +15,8 @@ import 'package:cool_ui/cool_ui.dart';
 import 'UserManualPage.dart';
 import 'UserNotesDemo.dart';
 import 'package:majorproj2/NavBar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:slide_to_act/slide_to_act.dart';
 //import 'custom_keyboard.dart';
 import 'package:flutter/services.dart';
 //import 'custom_button.dart';
@@ -37,11 +42,103 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Login'),
+      home: MyHomePage1(title: 'Flutter Login'),
      // home: KeyboardDemo(),
     );
   }
 }
+class MyHomePage1 extends StatefulWidget {
+      MyHomePage1({Key key, this.title}) : super(key: key);
+      final String title;
+      @override
+      _MyHomePageState1 createState() => new _MyHomePageState1();
+      //_KeyboardDemoState createState1() => _KeyboardDemoState();
+      //SecondRoute createState2() => SecondRoute();
+      
+    }
+class _MyHomePageState1 extends State<MyHomePage1> {
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset('assets/ashu123.jpg',fit: BoxFit.cover,),
+
+            ),
+            // Center(
+            //   child: Text('Welcome',style: TextStyle(
+            //     fontSi
+            //     fontWeight: FontWeight.w900,
+            //     backgroundColor: Colors.white54,
+            //     color: Colors.black,
+            //     decorationStyle: TextDecorationStyle.solid,
+            //      ),),
+            // ),
+            Builder(builder: (context)
+            {
+              return Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SlideAction(
+                  alignment: Alignment.bottomCenter,
+                  innerColor: Colors.black,
+                  outerColor: Colors.white,
+                  sliderButtonIcon: Icon(Icons.arrow_right,color: Colors.white,),
+                  borderRadius: 16.0,
+                  submittedIcon: Icon(Icons.done),
+                  animationDuration: Duration(seconds: 0),
+                  onSubmit: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context) =>CustomKeyboardDemo()));
+                  },
+                ),
+              );
+            })
+          ],
+        ),
+      )
+    );
+  }
+}
+//     return Stack(
+//       children:<Widget>[
+//         wallpaper(context),
+//         Align(alignment: Alignment.bottomCenter,
+//         child:Container(
+//           margin: EdgeInsets.only(bottom:25),
+//           child:ShimmerText(),
+//         ),
+//         )
+//       ],
+//     );
+//   }
+
+//     Widget ShimmerText(){
+//       return Shimmer.fromColors(
+//         baseColor: Colors.grey[100],
+//         highlightColor: Colors.white,
+//         child: Text(
+//           "> Slide to unlock",
+//         ),
+//       );
+    
+//     }
+
+// }
+  
+//   wallpaper(BuildContext context){
+//     return Container(
+//       height: MediaQuery.of(context).size.height,
+//       width:double.infinity,
+//       child: Image.asset(
+//       "wallpaper.jpg",
+//         fit: BoxFit.cover,
+//       ),
+//     );
+//   }
+  
 class MyHomePage extends StatefulWidget {
       MyHomePage({Key key, this.title}) : super(key: key);
       // This widget is the home page of your application. It is stateful, meaning
@@ -71,23 +168,33 @@ class _SecondRoute extends State<SecondRoute> {
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Welcome',
-       style: optionStyle,
+       style: TextStyle(fontFamily: 'DancingScript',
+       fontWeight: FontWeight.bold),
     ),
     Text(
       'Index 1: Mic',
-       style: optionStyle,
+       style: TextStyle(fontFamily: 'DancingScript',
+       fontWeight: FontWeight.bold),
     ),
     Text(
       'Index 2: Keyboard',
-      style: optionStyle,
+      style: TextStyle(fontFamily: 'DancingScript',
+      fontWeight: FontWeight.bold),
     ),
     Text(
       'Index 3: User Manual',
-      style: optionStyle,
+      style: TextStyle(fontFamily: 'DancingScript',
+      fontWeight: FontWeight.bold),
     ),
     Text(
       'Index 4: Settings',
-      style: optionStyle,
+      style: TextStyle(fontFamily: 'DancingScript',
+      fontWeight: FontWeight.bold),
+    ),
+    Text(
+      'Index 4: Settings1',
+      style: TextStyle(fontFamily: 'DancingScript',
+      fontWeight: FontWeight.bold),
     ),
 
     
@@ -113,7 +220,7 @@ class _SecondRoute extends State<SecondRoute> {
 
     }
     if (index == 4){
-      Navigator.push(context, MaterialPageRoute(builder:(context)=>new SettingsDemo()));
+      Navigator.push(context, MaterialPageRoute(builder:(context)=>new Videostream()));
 
     }
     if (index == 5){
@@ -131,6 +238,7 @@ class _SecondRoute extends State<SecondRoute> {
           appBar: AppBar(
             //automaticallyImplyLeading: false,
             title: Text("Welcome"),
+            
             actions: <Widget>[
             IconButton(
               icon: Icon(
@@ -153,7 +261,8 @@ class _SecondRoute extends State<SecondRoute> {
 
                 body: Center( 
                     child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+                    
+                ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -231,7 +340,24 @@ class SettingsDemo extends StatefulWidget{
   _SettingsDemo createState() => new _SettingsDemo();
 }  
 class _SettingsDemo extends State<SettingsDemo>{
+  //get downloadUrl => null;
+
+  //get _x => null;
+
+  
   Widget build(BuildContext context) {
+
+  // FirebaseFirestore.instance.collection("users").doc().set({
+  //   "name":"Deeksha"
+  // });
+  CollectionReference record = Firestore.instance.collection("users").document("").collection("records").reference();
+        record.add(
+            {
+          "name":"deeksha"
+    }
+    );
+
+
     //Material loginButon;
         return Scaffold(
           appBar: AppBar(
@@ -298,6 +424,7 @@ final Map<String, HighlightedWord> _highlights = {
   stt.SpeechToText _speech;
   bool _isListening = false;
   String _text = 'Press the button and start speaking';
+  
   double _confidence = 1.0;
   @override
   void initState() {
@@ -305,6 +432,7 @@ final Map<String, HighlightedWord> _highlights = {
     _speech = stt.SpeechToText();
   }
   String text = 'Press the button and start speaking';
+
   @override
   Widget build(BuildContext context) {
     //Material loginButon;
@@ -351,6 +479,7 @@ final Map<String, HighlightedWord> _highlights = {
                         fontSize: 32.0,
                         color: Colors.black,
                         fontWeight: FontWeight.w400,  
+                        fontFamily: 'DancingScript'
                       ),
                     ),
                     ),
@@ -406,6 +535,12 @@ class _MyHomePageState extends State<MyHomePage> {
   //_MyHomePageState(this.controller);
       @override
       Widget build(BuildContext context){
+        /*return Stack(
+          children: <Widget>[
+            wallpaper(context),
+          ],
+        );*/
+        
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(30),
 
@@ -415,6 +550,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 32.0,
                 color: Colors.black,
                 fontWeight: FontWeight.w400,
+                fontFamily: 'DancingScript'
               ),
             ),
         );
@@ -427,9 +563,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             minWidth: MediaQuery.of(context).size.width,
                             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                             //onPressed: () {},
-                            child: Text("Login",
+                            child: Text("Logins",
                                 textAlign: TextAlign.center,
                                 style: style.copyWith(
+                                    fontFamily: 'DancingScript',
                                     color: Colors.white, fontWeight: FontWeight.bold)),
                                     onPressed: (){
                                       Navigator.push(context, MaterialPageRoute(builder:(context)=>new CustomKeyboardDemo()),
@@ -478,8 +615,20 @@ class _MyHomePageState extends State<MyHomePage> {
           Future  toggleRecording() =>SpeechApi.toggleRecording(
             onResult: (text) => setState(() => this.text = text as String),
           );
+      }
+          /*wallpaper(BuildContext context){
+            return Container(
+              height: MediaQuery.of(context).size.height,
+              width: double.infinity,
+              child: Image.asset(
+                "https://images.unsplash.com/photo-1597042343165-57d0e98546b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VwZXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+                fit: BoxFit.cover,
+              ),
+            );
+          }*/
+  
+  
 
-  }
 class _KeyboardDemoState extends State<KeyboardDemo> {
   TextEditingController _controller = TextEditingController();
   bool _readOnly = true;

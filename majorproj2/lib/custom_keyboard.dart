@@ -1,3 +1,4 @@
+import 'package:path/path.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'main.dart';
@@ -91,6 +92,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 prefixIcon: Icon(Icons.email),
                 hintText: "Email",
+                hintStyle: TextStyle(fontFamily: 'DancingScript'),
                 border: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                     borderRadius: BorderRadius.circular(25.0)),
@@ -116,6 +118,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                 prefixIcon: Icon(Icons.lock),
                 
                 hintText: "Password",
+                hintStyle: TextStyle(fontFamily: 'DancingScript'),
                 suffix: InkWell(
                     onTap: _togglePasswordView,
                                         child: Icon( _passwordVisible ?Icons.visibility:Icons.visibility_off),
@@ -156,7 +159,9 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                                         borderRadius: BorderRadius.circular(10)),
                                     /*highlightColor: Colors.blue,
                                     hoverColor: Colors.redAccent,*/
-                                    child: Text('Login'),
+                                    child: Text('Login',
+                                    style: TextStyle(fontFamily: 'DancingScript',
+                                    fontWeight: FontWeight.bold),),
                                     splashColor: Colors.black,
                                     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                     //padding: EdgeInsets.only(left: 100.0, right: 100.0),
@@ -172,6 +177,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                                           // Retrieve the text the user has entered by using the
                                         // TextEditingController.
                                         content: Text("Wrong username or password"),
+                                        
                                         );
                                       },
                                     );
