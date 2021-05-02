@@ -5,7 +5,7 @@ class TestKeyboard extends StatelessWidget{
   static const CKTextInputType inputType = const CKTextInputType(name:'CKTestKeyboard');
   static double getHeight(BuildContext ctx){
     MediaQueryData mediaQuery = MediaQuery.of(ctx);
-    return mediaQuery.size.width / 3 / 2 * 2;
+    return mediaQuery.size.width / 3 / 5 * 5;
   }
   final KeyboardController controller ;
    TestKeyboard({@required this.controller, this.onTextInput});
@@ -23,46 +23,50 @@ class TestKeyboard extends StatelessWidget{
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
     return Material(
-      child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.w700,color: Colors.black,fontSize: 18.0), child: Container(
+      
+      child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.w900,color: Colors.black,fontSize: 18.0), child: Container(
         /*height:getHeight(context),
         width: mediaQuery.size.width,*/
-        height:300,
-        width: 250,
+        
+        height:500,
+        width: 340,
         decoration: BoxDecoration(
           color: Color(0xffafafaf),
         ),
         child: GridView.count(
+            
             childAspectRatio: 4/*3/1*/,
-            mainAxisSpacing:1.5,
-            crossAxisSpacing:1.5,
-            padding: EdgeInsets.all(0.0),
+            mainAxisSpacing:4.0,
+            crossAxisSpacing:4.0,
+            padding: EdgeInsets.all(1.0),
+            
             crossAxisCount: 4,
             children: <Widget>[
-              buildButton('q'),
-              buildButton('w'),
-              buildButton('e'),
-              buildButton('r'),
-              buildButton('t'),
-              buildButton('y'),
-              buildButton('u'),
-              buildButton('i'),
-              buildButton('o'),
-              buildButton('p'),
+              buildButton1('q','assets/images/Q1.jpg'),
+              buildButton1('w','assets/images/W.jpg'),
+              buildButton1('e','assets/images/E.jpg'),
+              buildButton1('r','assets/images/R.jpg'),
+              buildButton1('t','assets/images/T.jpg'),
+              buildButton1('y','assets/images/Y.png'),
+              buildButton1('u','assets/images/U.jpg'),
+              buildButton1('i','assets/images/I.png'),
+              buildButton1('o','assets/images/O.png'),
+              buildButton1('p','assets/images/P.jpg'),
               buildButton('a'),
-              buildButton('s'),
-              buildButton('d'),
-              buildButton('f'),
+              buildButton1('s','assets/images/S.png'),
+              buildButton1('d','assets/images/D.jpg'),
+              buildButton1('f','assets/images/F.png'),
               buildButton1('g','assets/images/g.png'),
-              buildButton('h'),
-              buildButton('j'),
+              buildButton1('h','assets/images/H.png'),
+              buildButton1('j','assets/images/J.jpg'),
               buildButton1('k','assets/images/k.gif'),
-              buildButton('l'),
-              buildButton('z'),
-              buildButton('x'),
-              buildButton('c'),
-              buildButton('v'),
-              buildButton('b'),
-              buildButton('n'),
+              buildButton1('l','assets/images/L.jpg'),
+              buildButton1('z','assets/images/Z.png'),
+              buildButton1('x','assets/images/X.jpg'),
+              buildButton1('c','assets/images/c.png'),
+              buildButton1('v','assets/images/V.jpg'),
+              buildButton1('b','assets/images/B.png'),
+              buildButton1('n','assets/images/N.jpg'),
               //buildButton('m'),
               Container(
                 color: Color(0xFFd3d6dd),
@@ -94,9 +98,11 @@ class TestKeyboard extends StatelessWidget{
   Widget buildButton1(String title,String img,{String value}){
      return Container(
        child: GestureDetector(
+         
         behavior: HitTestBehavior.translucent,
 
-         child: new Image.asset(img, width: 4.0,height: 0.95,),
+         child: new Image.asset(img,fit:BoxFit.fill),
+         
         // child: new Tab(icon:new 
         // Image(image: AssetImage('assets/images/g.png'),
         

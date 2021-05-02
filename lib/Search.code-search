@@ -1,0 +1,129 @@
+# Query: assets
+# ContextLines: 1
+
+65 results - 7 files
+
+majorproj2\pubspec.yaml:
+  70  
+  71:   # To add assets to your application, add an assets section, like this:
+  72:   assets:
+        
+  73    #   - images/a_dot_burr.jpeg
+
+  76    # An image asset can refer to one or more resolution-specific "variants", see
+  77:   # https://flutter.dev/assets-and-images/#resolution-aware.
+  78  
+  79:   # For details regarding adding assets from package dependencies, see
+  80:   # https://flutter.dev/assets-and-images/#from-packages
+  81  
+
+majorproj2\android\app\src\main\res\drawable\launch_background.xml:
+  5  
+  6:     <!-- You can insert your own image assets here -->
+  7      <!-- <item>
+
+majorproj2\android\app\src\main\res\drawable-v21\launch_background.xml:
+  5  
+  6:     <!-- You can insert your own image assets here -->
+  7      <!-- <item>
+
+majorproj2\ios\.gitignore:
+  22  Flutter/app.zip
+  23: Flutter/flutter_assets/
+  24  Flutter/flutter_export_environment.sh
+
+majorproj2\ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md:
+  1: # Launch Screen Assets
+  2  
+  3: You can customize the launch screen with your own desired assets by replacing the image files in this directory.
+  4  
+  5: You can also do it by opening your Flutter project's Xcode project with `open ios/Runner.xcworkspace`, selecting `Runner/Assets.xcassets` in the Project Navigator and dropping in the desired images.
+
+majorproj2\ios\Runner.xcodeproj\project.pbxproj:
+   13  		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
+   14: 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+   15  		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+
+   41  		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+   42: 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+   43  		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+
+   89  				97C146FA1CF9000F007C117D /* Main.storyboard */,
+   90: 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
+   91  				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
+
+  163  				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
+  164: 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
+  165  				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+
+C:\Users\Admin\Documents\flutter\packages\flutter_tools\gradle\flutter.gradle:
+   752                          if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+   753:                             commandLine('cmd', '/c', "attrib -r ${assetsDirectory}/* /s")
+   754                          } else {
+   755:                             commandLine('chmod', '-R', 'u+w', assetsDirectory)
+   756                          }
+
+   782              // We know that `:flutter` is used as a subproject when these tasks exists and we aren't building an AAR.
+   783:             Task packageAssets = project.tasks.findByPath(":flutter:package${variant.name.capitalize()}Assets")
+   784:             Task cleanPackageAssets = project.tasks.findByPath(":flutter:cleanPackage${variant.name.capitalize()}Assets")
+   785:             boolean isUsedAsSubproject = packageAssets && cleanPackageAssets && !isBuildingAar
+   786:             Task copyFlutterAssetsTask = project.tasks.create(
+   787:                 name: "copyFlutterAssets${variant.name.capitalize()}",
+   788                  type: Copy,
+
+   790                  dependsOn compileTask
+   791:                 with compileTask.assets
+   792                  if (isUsedAsSubproject) {
+   793:                     dependsOn packageAssets
+   794:                     dependsOn cleanPackageAssets
+   795:                     into packageAssets.outputDir
+   796                      return
+   797                  }
+   798:                 // `variant.mergeAssets` will be removed at the end of 2019.
+   799:                 def mergeAssets = variant.hasProperty("mergeAssetsProvider") ?
+   800:                     variant.mergeAssetsProvider.get() : variant.mergeAssets
+   801:                 dependsOn mergeAssets
+   802:                 dependsOn "clean${mergeAssets.name.capitalize()}"
+   803:                 mergeAssets.mustRunAfter("clean${mergeAssets.name.capitalize()}")
+   804:                 into mergeAssets.outputDir
+   805              }
+
+   809                      variantOutput.processResourcesProvider.get() : variantOutput.processResources
+   810:                 processResources.dependsOn(copyFlutterAssetsTask)
+   811              }
+   812:             return copyFlutterAssetsTask
+   813          }
+
+   819                  }
+   820:                 Task copyFlutterAssetsTask = addFlutterDeps(variant)
+   821                  def variantOutput = variant.outputs.first()
+
+   823                      variantOutput.processResourcesProvider.get() : variantOutput.processResources
+   824:                 processResources.dependsOn(copyFlutterAssetsTask)
+   825  
+
+   873              project.android.libraryVariants.all { libraryVariant ->
+   874:                 Task copyFlutterAssetsTask
+   875                  appProject.android.applicationVariants.all { appProjectVariant ->
+
+   902                      }
+   903:                     if (copyFlutterAssetsTask == null) {
+   904:                         copyFlutterAssetsTask = addFlutterDeps(libraryVariant)
+   905                      }
+   906:                     Task mergeAssets = project
+   907                          .tasks
+   908:                         .findByPath(":${hostAppProjectName}:merge${appProjectVariant.name.capitalize()}Assets")
+   909:                     assert mergeAssets
+   910:                     mergeAssets.dependsOn(copyFlutterAssetsTask)
+   911                  }
+
+  1054  
+  1055:     String getAssetsDirectory() {
+  1056:         return "${outputDirectory}/flutter_assets"
+  1057      }
+  1058  
+  1059:     CopySpec getAssets() {
+  1060          return project.copySpec {
+  1061              from "${intermediateDir}"
+  1062:             include "flutter_assets/**" // the working dir and its files
+  1063          }

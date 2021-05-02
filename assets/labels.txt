@@ -1,6 +1,6 @@
-0 letter_c
-1 letter_a
-2 letter_b
+0 a_letter
+1 b_letter
+2 c_letter
 3 d_letter
 4 e_letter
 5 f_letter
@@ -24,3 +24,4 @@
 23 x_letter
 24 y_letter
 25 z_letter
+26 hello_word

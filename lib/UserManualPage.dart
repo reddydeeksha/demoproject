@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:majorproj2/main.dart';
 import 'dart:io';
 import 'Utility.dart';
 import 'db_helperPhoto.dart';
@@ -119,7 +120,19 @@ pickImageFromGallery() {
           children: <Widget>[
             Flexible(
               child: gridView(),
-            )
+            ),
+        Container(
+          child:FlatButton(
+
+                child: Text('Back', style: TextStyle(fontSize: 20.0),),  
+                color: Colors.blueAccent,  
+                
+                textColor: Colors.white,  
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
+                },  
+          ),   
+      ),
           ],
         ),
       ),

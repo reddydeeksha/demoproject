@@ -31,6 +31,8 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
 
   @override
   Widget build(BuildContext context) {
+    final topPadding=MediaQuery.of(context).padding.top;
+
     
   
     // TODO: implement build
@@ -47,11 +49,32 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
               SizedBox(
                   height: 180,
                 ),
+              
               Container(
-                height:100,
+            
+                // decoration: BoxDecoration(
+                //   gradient: LinearGradient(colors: [
+                //     Color.fromRGBO(145, 131, 222, 1),
+                //     Color.fromRGBO(160, 148, 227, 1),
+                //   ],begin: Alignment.topCenter,end: Alignment.bottomCenter
+                //   ),
+                  
+                // ),
+                // child:Scaffold(
+                //   backgroundColor: Colors.transparent,
+                //   body: SizedBox(
+                //     width:double.infinity,
+                //     child:Column(children: [
+                //     SizedBox(height:topPadding),
+                //     SizedBox(height:10),
+                //     AnimatedImage(),
+                //     //Image.asset('assets/images/imgg1.jpg'),
+                //   ],), ),),
+              height:100,
                 width: 100,
                 child: Shimmer.fromColors(
-                  child: Text("LOGIN", 
+                  child: Text("LOGIN",
+                   
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   textAlign: TextAlign.center,
                   ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:majorproj2/main.dart';
+import 'package:majorproj2/objectdetection.dart';
 import 'dart:io';
 import 'package:tflite/tflite.dart';
+
 
 void main() => runApp(Videostream());
 class Videostream extends StatelessWidget {
@@ -153,9 +156,23 @@ Widget build(BuildContext context) {
         )),
       result == null
         ? Text('Result')
-        : Text(result)
+        : Text(result),
      //   : Text('result not displayed')
-  ]))
+     Container(
+     child:FlatButton(
+
+                child: Text('Back', style: TextStyle(fontSize: 20.0),),  
+                color: Colors.blueAccent,  
+                
+                textColor: Colors.white,  
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
+                },  
+          
+      ),
+     ),
+  ]
+  ))
   );
 }
 }
@@ -171,11 +188,15 @@ class MyImagePickerState1 extends State<MyImagePicker1> {
 
 
 Widget build(BuildContext context) {
-  return Scaffold(
-    body: Center(
-    child: Column(
+  return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Detect Room Color',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyApp123(),
+    );
       
-  ))
-  );
+
 }
 }
