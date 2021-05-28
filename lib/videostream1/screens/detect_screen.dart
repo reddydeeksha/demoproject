@@ -101,7 +101,7 @@ class _DetectScreenPageState extends State<DetectScreen>
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          height: 200.0,
+          height: 150.0,
           width: width,
           color: Colors.white,
           child: outputs != null && outputs.isNotEmpty
