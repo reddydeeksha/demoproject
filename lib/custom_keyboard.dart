@@ -1,3 +1,5 @@
+import 'package:majorproj2/registration/screens/create-new-account.dart';
+import 'package:majorproj2/registration/screens/forgot-password.dart';
 import 'package:path/path.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -38,16 +40,19 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
     // TODO: implement build
     return KeyboardMediaQuery(child: Builder(builder: (ctx) {
       // CoolKeyboard.init(ctx);
-      return Scaffold(
-          appBar: AppBar(
+      return new Scaffold(
+          
+          appBar: new AppBar(
             title: Text("Custom Keyboard Demo"),
           ),
+        
           body: ListView(
+            
             
             children: <Widget>[
               
               SizedBox(
-                  height: 180,
+                  height: 140,
                 ),
               
               Container(
@@ -73,7 +78,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
               height:100,
                 width: 100,
                 child: Shimmer.fromColors(
-                  child: Text("LOGIN",
+                  child: Text("Sign In",
                    
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   textAlign: TextAlign.center,
@@ -115,7 +120,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 prefixIcon: Icon(Icons.email),
                 hintText: "Email",
-                hintStyle: TextStyle(fontFamily: 'DancingScript'),
+                hintStyle: TextStyle(fontFamily: 'AmaticSC'),
                 border: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                     borderRadius: BorderRadius.circular(25.0)),
@@ -128,7 +133,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                 keyboardType: TestKeyboard.inputType,
               ),*/
               SizedBox(
-                  height: 25,
+                  height: 23,
                 ),
               TextField(
                 controller: textEditing2Controller,
@@ -141,7 +146,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                 prefixIcon: Icon(Icons.lock),
                 
                 hintText: "Password",
-                hintStyle: TextStyle(fontFamily: 'DancingScript'),
+                hintStyle: TextStyle(fontFamily: 'AmaticSC'),
                 suffix: InkWell(
                     onTap: _togglePasswordView,
                                         child: Icon( _passwordVisible ?Icons.visibility:Icons.visibility_off),
@@ -158,11 +163,38 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                                         )
                                         
                                         ),
-                                        
-                                        
                                   SizedBox(
-                                      height: 36,
+                                      height: 13,
+                                    ),  
+                                    GestureDetector(
+                                    // onTap: (){
+                                    //   //if(textEditingController.text=="arthy" && textEditing2Controller.text=="arthyb" ){
+                                    //   Navigator.push(context, MaterialPageRoute(builder:(context)=>new ForgotPassword()));
+                                      
+                                    onTap: () => 
+                                    Navigator.push(context, MaterialPageRoute(builder:(context)=>new ForgotPassword())),
+                                    
+                                    //Navigator.pushNamed(context, 'ForgotPassword'),
+                                    
+                                    //  
+                                    child: Text(
+                                    'Forgot Password.?',
+                                    textAlign: TextAlign.right,
+                                     //style: kBodyText,
                                     ),
+                                    ),  
+                                    SizedBox(
+                                      height: 16,
+                                    ),                      
+            
+          
+                                     
+            
+  
+          
+                                        
+    
+                                    
                                    
                                   /*TextField(
                                     controller: textEditing2Controller,
@@ -183,7 +215,7 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                                     /*highlightColor: Colors.blue,
                                     hoverColor: Colors.redAccent,*/
                                     child: Text('Login',
-                                    style: TextStyle(fontFamily: 'DancingScript',
+                                    style: TextStyle(fontFamily: 'AmaticSC',
                                     fontWeight: FontWeight.bold),),
                                     splashColor: Colors.black,
                                     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -213,6 +245,19 @@ class CustomKeyboardDemoState extends State<CustomKeyboardDemo> {
                                       );*/
                                     },
                                   ),
+                                  ),
+                                  SizedBox(
+                                      height: 14,
+                                    ), 
+                                  GestureDetector(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder:(context)=>new FormPage())),
+                child: Container(
+                  child: Text(
+                    'Dont Have An Account?Create',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 15.0, color: Colors.black),
+                  ),
+                                  )
                                   )
                                 ],
                               )

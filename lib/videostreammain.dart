@@ -23,7 +23,7 @@ class Videostream extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Sample'),
+          title: Text('Sign Language Video Recognition'),
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
@@ -158,19 +158,19 @@ Widget build(BuildContext context) {
         ? Text('Result')
         : Text(result),
      //   : Text('result not displayed')
-     Container(
-     child:FlatButton(
+    //  Container(
+    //  child:FlatButton(
 
-                child: Text('Back', style: TextStyle(fontSize: 20.0),),  
-                color: Colors.blueAccent,  
+    //             child: Text('Back', style: TextStyle(fontSize: 20.0),),  
+    //             color: Colors.blueAccent,  
                 
-                textColor: Colors.white,  
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
-                },  
+    //             textColor: Colors.white,  
+    //             onPressed: () {
+    //               Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
+    //             },  
           
-      ),
-     ),
+    //   ),
+    //  ),
   ]
   ))
   );
@@ -190,7 +190,7 @@ class MyImagePickerState1 extends State<MyImagePicker1> {
 Widget build(BuildContext context) {
   return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Detect Room Color',
+      //title: 'Detect Room Color',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -13,28 +13,36 @@ class MyApp1 extends StatelessWidget {
 	@override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-	    title: 'Images',
+    return Scaffold(
+	  
+      // appBar: AppBar(
+      //     // leading: new IconButton(
+      //     // //icon: new Icon(Icons.arrow_back, color: Colors.orange),
+      //     // onPressed: () => Navigator.of(context).pop(),
+          
+      // ), 
 	    //debugShowCheckedModeBanner: false,
-	    theme: ThemeData(
-		    primarySwatch: Colors.deepPurple
-	    ),
-	    home: SaveImageDemoSQLite(),
+	    // theme: ThemeData(
+		  //   primarySwatch: Colors.deepPurple
+	    // ),
+      //),
+    
+	    body: SaveImageDemoSQLite(),
     );
+    
   }
 }
 class SaveImageDemoSQLite extends StatefulWidget {
-  //
+  
   SaveImageDemoSQLite() : super();
 
-  final String title = "Flutter Save Image";
+  final String title = "User Manual";
 
   @override
   _SaveImageDemoSQLiteState createState() => _SaveImageDemoSQLiteState();
 }
 
 class _SaveImageDemoSQLiteState extends State<SaveImageDemoSQLite> {
-  //
   Future<File> imageFile;
   Image image;
   DBHelper dbHelper;
@@ -109,6 +117,7 @@ pickImageFromGallery() {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
+              
               pickImageFromGallery();
             },
           )
@@ -121,18 +130,18 @@ pickImageFromGallery() {
             Flexible(
               child: gridView(),
             ),
-        Container(
-          child:FlatButton(
+      //   Container(
+      //     child:FlatButton(
 
-                child: Text('Back', style: TextStyle(fontSize: 20.0),),  
-                color: Colors.blueAccent,  
+      //           child: Text('Back', style: TextStyle(fontSize: 20.0),),  
+      //           color: Colors.blueAccent,  
                 
-                textColor: Colors.white,  
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
-                },  
-          ),   
-      ),
+      //           textColor: Colors.white,  
+      //           onPressed: () {
+      //             Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
+      //           },  
+      //     ),   
+      // ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majorproj2/settingsdemo.dart';
 import 'about.dart';
 class NavBar extends StatelessWidget {
   @override
@@ -47,6 +48,11 @@ class NavBar extends StatelessWidget {
                     leading:Icon(Icons.people),
                     title:Text('Friends'),
                     onTap:() => null,
+                    // onTap:() => {
+                    //   Navigator.of(context).pop(),
+                    //   Navigator.push(context, new MaterialPageRoute(
+                    //     builder: (BuildContext context)=>new SettingDemo())),
+                    // },
                     
                   ),
                   ListTile(
@@ -65,7 +71,12 @@ class NavBar extends StatelessWidget {
                   ListTile(
                     leading:Icon(Icons.settings),
                     title:Text('Settings'),
-                    onTap:() => null,
+                    //onTap:() => null,
+                    onTap:() => {
+                      Navigator.of(context).pop(),
+                      Navigator.push(context, new MaterialPageRoute(
+                        builder: (BuildContext context)=>new SettingDemo())),
+                    },
                     
                   ),
                   ListTile(

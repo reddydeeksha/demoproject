@@ -17,7 +17,7 @@ class MyApp123 extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DetectScreen(title: 'Detect Room Color'),
+      home: DetectScreen(title: 'ASL Detection'),
     );
   }
 }

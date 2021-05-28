@@ -198,17 +198,17 @@ class _DBTestPageState extends State<UserNotesDemo> {
           children: <Widget>[
             form(),
             list(),
-        FlatButton(
+      //   FlatButton(
 
-                child: Text('Back', style: TextStyle(fontSize: 20.0),),  
-                color: Colors.blueAccent,  
+      //           child: Text('Back', style: TextStyle(fontSize: 20.0),),  
+      //           color: Colors.blueAccent,  
                 
-                textColor: Colors.white,  
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
-                },  
+      //           textColor: Colors.white,  
+      //           onPressed: () {
+      //             Navigator.push(context, MaterialPageRoute(builder:(context)=>new SecondRoute()));
+      //           },  
           
-      ),
+      // ),
           ],
         ),
         

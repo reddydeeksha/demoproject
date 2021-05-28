@@ -42,46 +42,46 @@ List<SliderModel> getSlides(){
   SliderModel sliderModel = new SliderModel();
 
   //1
-  sliderModel.setDesc("Discover a Food Courner offering the best fast food near you");
-  sliderModel.setTitle("Audio streaming(Speech to text)");
-  sliderModel.setImageAssetPath("assets/1234.jpg");
+  sliderModel.setDesc("©onverse will take you around the new world for Deaf-mute ");
+  sliderModel.setTitle("Hi There..!");
+  sliderModel.setImageAssetPath("assets/imgg1.jpg");
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
 
   //2
-  sliderModel.setDesc("Our food plan is filled with delicious seasonal vegetables, whole grains, fast food , burgger , pizza etc.");
-  sliderModel.setTitle("User Manual ");
-  sliderModel.setImageAssetPath("assets/45678.jpg");
+  sliderModel.setDesc("©onverse uses mimix technology and TTS engine to make the interaction much more easier and predicts the sign languages");
+  sliderModel.setTitle("About App ");
+  sliderModel.setImageAssetPath("assets/2asl.jpg");
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
 
   //3
-  sliderModel.setDesc("Food delivery or pickup from local restaurants, Explore restaurants that deliver near you.");
-  sliderModel.setTitle("User Notes");
-  sliderModel.setImageAssetPath("assets/bd.jpg");
+  sliderModel.setDesc("TTS engine is a type of assistive technology that reads digital text aloud.TTS will take the message you type in text box and convert them into audio.");
+  sliderModel.setTitle("Text-To-Speech ");
+  sliderModel.setImageAssetPath("assets/textspeech.jpg");
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
   //4
-  sliderModel.setDesc("Our food plan is filled with delicious seasonal vegetables, whole grains, fast food , burgger , pizza etc.");
-  sliderModel.setTitle("Image Detection");
-  sliderModel.setImageAssetPath("assets/img.jpg");
+  sliderModel.setDesc("By using Video Detection, you can process sign language images and videos inorder to identify the ASL.");
+  sliderModel.setTitle("Video Detection ");
+  sliderModel.setImageAssetPath("assets/videostreaming.png");
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
   //5
-  sliderModel.setDesc("Our food plan is filled with delicious seasonal vegetables, whole grains, fast food , burgger , pizza etc.");
-  sliderModel.setTitle("Video Objection Detection ");
-  sliderModel.setImageAssetPath("assets/ddl.jpg");
+  sliderModel.setDesc("Using this feature you can make calls or send a text to someone incase of emergency.");
+  sliderModel.setTitle("Emergency Alert");
+  sliderModel.setImageAssetPath("assets/safety app.jpg");
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();
   //6
-  sliderModel.setDesc("Our food plan is filled with delicious seasonal vegetables, whole grains, fast food , burgger , pizza etc.");
-  sliderModel.setTitle("Asl Keyboard ");
-  sliderModel.setImageAssetPath("assets/asl.jpg");
+  sliderModel.setDesc("Why to Depend on someone to go somewhere when you have your friend ' ©onverse with you always.Use me and know your destination by urself");
+  sliderModel.setTitle("Maps.");
+  sliderModel.setImageAssetPath("assets/maps1.jpeg");
   slides.add(sliderModel);
 
   sliderModel = new SliderModel();

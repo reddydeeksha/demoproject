@@ -20,7 +20,7 @@ class  HomePage123 extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                     image: AssetImage(
-                    'assets/1234.jpg'),
+                    'assets/texttospeech.jpeg'),
                     fit: BoxFit.fill,
                     // borderRadius: BorderRadius.circular(8.0),
                     // image: DecorationImage(
@@ -39,7 +39,7 @@ class  HomePage123 extends StatelessWidget {
                     
                     image: DecorationImage(
                     image: AssetImage(
-                      'assets/1234.jpg'),
+                      'assets/speechtotext.jpeg'),
                       fit: BoxFit.fill,
                     ),
                     ),
@@ -53,7 +53,7 @@ class  HomePage123 extends StatelessWidget {
                     
                     image: DecorationImage(
                     image: AssetImage(
-                    'assets/1234.jpg'),
+                    'assets/objectiondetection.jpeg'),
                     fit: BoxFit.fill,
                   ),
                   ),
@@ -65,7 +65,7 @@ class  HomePage123 extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                     image: AssetImage(
-                    'assets/1234.jpg'),
+                    'assets/maps1.jpeg'),
                     fit: BoxFit.fill,
                     // borderRadius: BorderRadius.circular(8.0),
                     // image: DecorationImage(
@@ -81,7 +81,7 @@ class  HomePage123 extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                     image: AssetImage(
-                    'assets/1234.jpg'),
+                    'assets/phone.jpeg'),
                     fit: BoxFit.fill,
                     // borderRadius: BorderRadius.circular(8.0),
                     // image: DecorationImage(

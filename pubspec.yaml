@@ -32,7 +32,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  speech_to_text : ^3.2.0
+  speech_to_text : 
+  #speech_to_text : ^3.2.0
   speech_recognition: ^0.3.0+1
   cool_ui : ^1.0.0
   highlight_text: ^0.7.2
@@ -40,10 +41,14 @@ dependencies:
   sqflite: ^1.3.0
   path_provider: ^2.0.1
   path: ^1.8.0
-  provider: ^5.0.0
+  #provider: ^5.0.0
   shared_preferences: ^2.0.5
   stream_chat_flutter : 
   image_picker:
+  provider: ^4.3.3
+  geolocator: ^6.2.0
+  http: ^0.12.2
+  google_maps_flutter: ^1.2.0
   #image_picker: ^0.7.4
   #1 image_picker: ^0.6.0+3
   cloud_firestore: ^0.12.9+4
@@ -59,11 +64,19 @@ dependencies:
   tflite:
   animated_theme_switcher: ^2.0.1-nullsafety.0
   #permission_handler:
-  camera: ^0.5.7+4
-  image: ^2.1.4
-  #flutter_tts: ^1.2.6
+  # camera: ^0.5.7+4
+  # image: ^2.1.4
+  camera: 
+  image: 
+  flutter_tts: ^3.0.0
   percent_indicator: ^2.1.1+1
   carousel_slider: ^3.0.0
+  animated_splash_screen: ^1.1.0
+  clipboard: ^0.1.3
+  splashscreen: ^1.3.5
+  url_launcher: 
+  #font_awesome_flutter: ^8.10.0
+  #google_fonts: ^1.1.1
 
 
 dev_dependencies:
@@ -85,6 +98,8 @@ flutter:
   assets:
    - assets/
    - assets/images/
+   - assets/attachment.gif
+   - assets/loading.gif
   #  - assets/yolov2_tiny.tflite
   #  - assets/yolov2_tiny.txt
   #  - assets/ssd_mobilenet.tflite
@@ -108,9 +123,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: DancingScript
+    - family: Courgette-Regular
       fonts:
-        - asset: assets/DancingScript-VariableFont_wght.ttf
+          - asset: assets/Courgette-Regular.ttf
+        # - asset: assets/Cinzel-VariableFont_wght.ttf
+        #  - asset: assets/Courgetter-Regular.ttf
+        # - asset: assets/Girassol-Regular.ttf
+        # - asset: assets/KaushanScript-Regular.ttf
+        # - asset: assets/Dosis-VariableFont_wght.ttf
+        
         #- asset: fonts/Schyler-Italic.ttf
         #  style: italic
   #   - family: Trajan Pro

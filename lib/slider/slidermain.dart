@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:majorproj2/custom_keyboard.dart';
+import 'package:majorproj2/registration/screens/create-new-account.dart';
+import 'package:majorproj2/registration/screens/forgot-password.dart';
 
 import 'data.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,14 @@ class SliderMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      //home: Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/second': (context) => CustomKeyboardDemo(),
+        'forgotpassword': (context) => ForgotPassword(),
+        'createaccount':(context) => FormPage(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
@@ -55,7 +64,9 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [const Color(0xff3C8CE7), const Color(0xff00EAFF)])),
+              
       child: Scaffold(
+        
          
         //backgroundColor: Colors.green,
         body: Container(
@@ -97,7 +108,17 @@ class _HomeState extends State<Home> {
                 imagePath: mySLides[5].getImageAssetPath(),
                 title: mySLides[5].getTitle(),
                 desc: mySLides[5].getDesc(),
-              )
+              ),
+              // SlideTile(
+              //   imagePath: mySLides[6].getImageAssetPath(),
+              //   title: mySLides[6].getTitle(),
+              //   desc: mySLides[6].getDesc(),
+              // ),
+              // SlideTile(
+              //   imagePath: mySLides[7].getImageAssetPath(),
+              //   title: mySLides[7].getTitle(),
+              //   desc: mySLides[7].getDesc(),
+              // )
             ],
           ),
         ),
@@ -119,7 +140,7 @@ class _HomeState extends State<Home> {
               Container(
                 child: Row(
                   children: [
-                    for (int i = 0; i < 6 ; i++) i == slideIndex ? _buildPageIndicator(true): _buildPageIndicator(false),
+                    for (int i = 0; i < 5 ; i++) i == slideIndex ? _buildPageIndicator(true): _buildPageIndicator(false),
                   ],),
               ),
               FlatButton(
