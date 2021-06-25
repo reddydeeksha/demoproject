@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:majorproj2/test_keyboard.dart';
+import 'package:shimmer/shimmer.dart';
 import 'InputDeco_design.dart';
 
 class FormPage extends StatefulWidget {
@@ -21,17 +23,46 @@ class _FormPageState extends State<FormPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 70,
-                  child: Image.network("https://protocoderspoint.com/wp-content/uploads/2020/10/PROTO-CODERS-POINT-LOGO-water-mark-.png"),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
+                Container(
+            
+                // decoration: BoxDecoration(
+                //   gradient: LinearGradient(colors: [
+                //     Color.fromRGBO(145, 131, 222, 1),
+                //     Color.fromRGBO(160, 148, 227, 1),
+                //   ],begin: Alignment.topCenter,end: Alignment.bottomCenter
+                //   ),
+                  
+                // ),
+                // child:Scaffold(
+                //   backgroundColor: Colors.transparent,
+                //   body: SizedBox(
+                //     width:double.infinity,
+                //     child:Column(children: [
+                //     SizedBox(height:topPadding),
+                //     SizedBox(height:10),
+                //     AnimatedImage(),
+                //     //Image.asset('assets/images/imgg1.jpg'),
+                //   ],), ),),
+              height:100,
+                width: 100,
+                child: Shimmer.fromColors(
+                  child: Text("SignUp",
+                   
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  textAlign: TextAlign.center,
+                  ),
+                  baseColor: Colors.red, 
+                  highlightColor: Colors.blueAccent,
+                  ),
+                
+
+              ),
+              
                 Padding(
                   padding: const EdgeInsets.only(bottom:15,left: 10,right: 10),
                   child: TextFormField(
-                    keyboardType: TextInputType.text,
+                    keyboardType: TestKeyboard.inputType,
+                    //keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.person,"Full Name"),
                     validator: (String value){
                       if(value.isEmpty)
@@ -45,48 +76,51 @@ class _FormPageState extends State<FormPage> {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15,left: 10,right: 10),
-                  child: TextFormField(
-                    keyboardType: TextInputType.text,
-                    decoration:buildInputDecoration(Icons.email,"Email"),
-                    validator: (String value){
-                      if(value.isEmpty)
-                      {
-                        return 'Please a Enter';
-                      }
-                      if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-                        return 'Please a valid Email';
-                      }
-                      return null;
-                    },
-                    onSaved: (String value){
-                      email = value;
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 15,left: 10,right: 10),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    decoration:buildInputDecoration(Icons.phone,"Phone No"),
-                    validator: (String value){
-                      if(value.isEmpty)
-                      {
-                        return 'Please enter phone no ';
-                      }
-                      return null;
-                    },
-                    onSaved: (String value){
-                      phone = value;
-                    },
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 15,left: 10,right: 10),
+                //   child: TextFormField(
+                //     keyboardType: TestKeyboard.inputType,
+                //     //keyboardType: TextInputType.text,
+                //     decoration:buildInputDecoration(Icons.email,"Email"),
+                //     validator: (String value){
+                //       if(value.isEmpty)
+                //       {
+                //         return 'Please a Enter';
+                //       }
+                //       if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                //         return 'Please a valid Email';
+                //       }
+                //       return null;
+                //     },
+                //     onSaved: (String value){
+                //       email = value;
+                //     },
+                //   ),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 15,left: 10,right: 10),
+                //   child: TextFormField(
+                //     keyboardType: TextInputType.number,
+                //     decoration:buildInputDecoration(Icons.phone,"Phone No"),
+                //     validator: (String value){
+                //       if(value.isEmpty)
+                //       {
+                //         return 'Please enter phone no ';
+                //       }
+                //       return null;
+                //     },
+                //     onSaved: (String value){
+                //       phone = value;
+                //     },
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15,left: 10,right: 10),
                   child: TextFormField(
                     controller: password,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TestKeyboard.inputType,
+                    obscureText: true,
+                    //keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Password"),
                     validator: (String value){
                       if(value.isEmpty)
@@ -102,7 +136,8 @@ class _FormPageState extends State<FormPage> {
                   child: TextFormField(
                     controller: confirmpassword,
                     obscureText: true,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TestKeyboard.inputType,
+                    //keyboardType: TextInputType.text,
                     decoration:buildInputDecoration(Icons.lock,"Confirm Password"),
                     validator: (String value){
                       if(value.isEmpty)
